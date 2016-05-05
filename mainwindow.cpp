@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->T1_3->hide();
     ui->T1_4->hide();
     ui->T1_5->hide();
+    is_table_ready = false;
     //player
     ui->LH1->hide();
     ui->H1_1->hide();
@@ -97,42 +98,38 @@ QString MainWindow::parser(int card)
 void MainWindow::on_actionStart_Game_triggered()
 {
     ui->stgame->show();
-    /*ui->LH1->show();
-    ui->H1_1->show();
-    ui->H1_2->show();
-    ui->LH2->show();
-    ui->H2_1->show();
-    ui->H2_2->show();
-    //ui->betBut->show();
-    //ui->BetAmountEdit->show();
-    //ui->callBut->show();
-    //ui->foldBut->show();
-    //ui->TLcur_am->show();
-    //ui->Lcur_am->show();
-    room->startGame();
-    ui->H1_1->setText(parser(room->player->hand->cards[0]));
-    ui->H1_2->setText(parser(room->player->hand->cards[1]));
-    ui->H2_1->setText(parser(room->ai_player->hand->cards[0]));
-    ui->H2_2->setText(parser(room->ai_player->hand->cards[1]));*/
 }
 
 void MainWindow::on_actionStop_Game_triggered()
 {
-    ui->stgame->hide();
-    /*ui->LH1->hide();
+    //table
+    ui->T1_1->hide();
+    ui->T1_2->hide();
+    ui->T1_3->hide();
+    ui->T1_4->hide();
+    ui->T1_5->hide();
+    is_table_ready = false;
+    //player
+    ui->LH1->hide();
     ui->H1_1->hide();
     ui->H1_2->hide();
-
-    ui->LH2->hide();
-    ui->H2_1->hide();
-    ui->H2_2->hide();
-
     ui->betBut->hide();
     ui->BetAmountEdit->hide();
     ui->callBut->hide();
     ui->foldBut->hide();
     ui->TLcur_am->hide();
-    ui->Lcur_am->hide();*/
+    ui->Lcur_am->hide();
+    //ai_player
+    ui->LH2->hide();
+    ui->H2_1->hide();
+    ui->H2_2->hide();
+    ui->TLcur_am_ai->hide();
+    ui->Lcur_am_ai->hide();
+    //deal button
+    ui->stgame->hide();
+    //bank
+    ui->TLBank->hide();
+    ui->LBank->hide();
 }
 
 void MainWindow::show_players_hand(Hand *hand)
@@ -149,50 +146,11 @@ void MainWindow::show_ai_amount(int amount)
     ui->Lcur_am_ai->setText(QString::number(amount));
 }
 
-/*
-void MainWindow::show_ai_players_hand(Hand &hand)
-{
-    ui->H2_1->setText(parser(hand->cards[0]));
-    ui->H2_2->setText(parser(hand->cards[1]));
-}*/
-
 void MainWindow::on_stgame_clicked()
 {
-    ui->LH2->hide();
-    ui->H2_1->hide();
-    ui->H2_2->hide();
-    ui->T1_1->hide();
-    ui->T1_2->hide();
-    ui->T1_3->hide();
-    ui->T1_4->hide();
-    ui->T1_5->hide();
-    ui->stgame->hide();
-
+    hide_table();
+    set_table_ready();
     room->startGame();
-
-
-    ui->TLBank->show();
-    ui->LBank->show();
-
-    ui->betBut->show();
-    ui->betBut->setDisabled(false);
-    ui->BetAmountEdit->show();
-    ui->callBut->show();
-    ui->callBut->setDisabled(false);
-    ui->foldBut->show();
-    ui->foldBut->setDisabled(false);
-
-    ui->TLcur_am->show();
-    ui->Lcur_am->show();
-    ui->Lcur_am->setText(QString::number(room->player->amount));
-
-    ui->TLcur_am_ai->show();
-    ui->Lcur_am_ai->show();
-    ui->Lcur_am_ai->setText(QString::number(room->ai_player->amount));
-
-    room->dealer->bank = 0;
-    room->dealer->last_bet = room->ai_player->bet();
-    ui->LBank->setText(QString::number(room->dealer->bank));
 }
 
 void MainWindow::increaseBank(int amount)
@@ -235,6 +193,7 @@ void MainWindow::on_callBut_clicked()
         ui->callBut->setDisabled(true);
         ui->betBut->setDisabled(true);
         ui->foldBut->setDisabled(true);
+        room->dealer->bank = 0;
     }
 }
 
@@ -256,4 +215,47 @@ void MainWindow::show_pl_amount(int &cur_bet)
     room->player->amount-=cur_bet;
     increaseBank(cur_bet);
     ui->Lcur_am->setText(QString::number(room->player->amount));
+}
+
+void MainWindow::hide_table()
+{
+    ui->LH2->hide();
+    ui->H2_1->hide();
+    ui->H2_2->hide();
+    ui->T1_1->hide();
+    ui->T1_2->hide();
+    ui->T1_3->hide();
+    ui->T1_4->hide();
+    ui->T1_5->hide();
+    ui->stgame->hide();
+}
+
+void MainWindow::set_table_ready()
+{
+    if(!is_table_ready)
+    {
+        ui->TLBank->show();
+        ui->LBank->show();
+        ui->betBut->show();
+        ui->BetAmountEdit->show();
+        ui->callBut->show();
+        ui->foldBut->show();
+        ui->TLcur_am->show();
+        ui->Lcur_am->show();
+        ui->TLcur_am_ai->show();
+        ui->Lcur_am_ai->show();
+        is_table_ready = true;
+    }
+    else
+    {
+        ui->betBut->setDisabled(false);
+        ui->callBut->setDisabled(false);
+        ui->foldBut->setDisabled(false);
+    }
+
+    ui->Lcur_am->setText(QString::number(room->player->amount));
+
+    ui->Lcur_am_ai->setText(QString::number(room->ai_player->amount));
+    room->dealer->last_bet = room->ai_player->bet();
+    ui->LBank->setText(QString::number(room->dealer->bank));
 }

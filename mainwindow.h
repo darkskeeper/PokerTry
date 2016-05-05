@@ -34,6 +34,9 @@ signals:
     void pl_bet(int &);
 private:
     Ui::MainWindow *ui;
+    void hide_table();
+    bool is_table_ready;
+    void set_table_ready();
 };
 
 #endif // MAINWINDOW_H

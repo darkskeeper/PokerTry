@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-05-05T12:05:06
+# Project created by QtCreator 2016-05-05T17:39:50
 #
 #-------------------------------------------------
 
@@ -14,19 +14,21 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    room.cpp \
     aiplayer.cpp \
     dealer.cpp \
     hand.cpp \
-    table.cpp \
-    player.cpp
+    player.cpp \
+    room.cpp \
+    table.cpp
 
 HEADERS  += mainwindow.h \
-    room.h \
     aiplayer.h \
     dealer.h \
     hand.h \
-    table.h \
-    player.h
+    player.h \
+    room.h \
+    table.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES +=

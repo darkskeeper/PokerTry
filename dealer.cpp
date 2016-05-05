@@ -3,6 +3,8 @@
 Dealer::Dealer(QObject *parent) : QObject(parent)
 {
     //deck.push_back(1);
+    bank = 0;
+    last_bet = 0;
 }
 
 void Dealer::shuffle()

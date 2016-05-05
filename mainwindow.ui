@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>711</width>
-    <height>524</height>
+    <width>609</width>
+    <height>379</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>218</x>
-      <y>150</y>
+      <x>208</x>
+      <y>100</y>
       <width>102</width>
       <height>15</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>218</x>
-      <y>50</y>
+      <x>208</x>
+      <y>0</y>
       <width>160</width>
       <height>15</height>
      </rect>
@@ -76,8 +76,8 @@
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>158</x>
-      <y>210</y>
+      <x>148</x>
+      <y>160</y>
       <width>261</width>
       <height>15</height>
      </rect>
@@ -123,8 +123,8 @@
    <widget class="QWidget" name="layoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>438</x>
-      <y>400</y>
+      <x>428</x>
+      <y>310</y>
       <width>135</width>
       <height>15</height>
      </rect>
@@ -149,8 +149,8 @@
    <widget class="QPushButton" name="foldBut">
     <property name="geometry">
      <rect>
-      <x>508</x>
-      <y>370</y>
+      <x>498</x>
+      <y>280</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -162,8 +162,8 @@
    <widget class="QWidget" name="layoutWidget_5">
     <property name="geometry">
      <rect>
-      <x>218</x>
-      <y>340</y>
+      <x>208</x>
+      <y>250</y>
       <width>163</width>
       <height>15</height>
      </rect>
@@ -195,8 +195,8 @@
    <widget class="QWidget" name="layoutWidget_6">
     <property name="geometry">
      <rect>
-      <x>438</x>
-      <y>50</y>
+      <x>428</x>
+      <y>0</y>
       <width>135</width>
       <height>15</height>
      </rect>
@@ -221,8 +221,8 @@
    <widget class="QPushButton" name="callBut">
     <property name="geometry">
      <rect>
-      <x>508</x>
-      <y>330</y>
+      <x>498</x>
+      <y>240</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -234,8 +234,8 @@
    <widget class="QPushButton" name="betBut">
     <property name="geometry">
      <rect>
-      <x>418</x>
-      <y>330</y>
+      <x>408</x>
+      <y>240</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -247,8 +247,8 @@
    <widget class="QPushButton" name="stgame">
     <property name="geometry">
      <rect>
-      <x>28</x>
-      <y>170</y>
+      <x>18</x>
+      <y>120</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -260,8 +260,8 @@
    <widget class="QLineEdit" name="BetAmountEdit">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>370</y>
+      <x>410</x>
+      <y>280</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -273,7 +273,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>711</width>
+     <width>609</width>
      <height>21</height>
     </rect>
    </property>
