@@ -1,13 +1,19 @@
 #ifndef TABLE_H
 #define TABLE_H
+
+#include <QObject>
 #include <QVector>
 
-
-class Table
+class Table : public QObject
 {
+    Q_OBJECT
 public:
+    explicit Table(QObject *parent = 0);
     QVector <int> table_cards;
-    Table();
+
+signals:
+
+public slots:
 };
 
 #endif // TABLE_H

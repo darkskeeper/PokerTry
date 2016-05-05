@@ -1,20 +1,26 @@
 #ifndef AIPLAYER_H
 #define AIPLAYER_H
-
 #include "hand.h"
+
+
 #include <QObject>
 
-class AIPlayer// : public QObject
+class AIPlayer : public QObject
 {
-    //Q_OBJECT
+    Q_OBJECT
 public:
+    explicit AIPlayer(QObject *parent = 0);
     int amount;
-    Hand hand;
-    AIPlayer();
+    Hand *hand;
     void takeCard(int);
     int bet();
-/*signals:
-    showai(const Hand&);*/
+    int call(int);
+
+signals:
+    void bet_to_bank(int);
+    void ai_amount(int);
+
+public slots:
 };
 
 #endif // AIPLAYER_H

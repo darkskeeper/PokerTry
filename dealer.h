@@ -1,17 +1,23 @@
 #ifndef DEALER_H
 #define DEALER_H
+
+#include <QObject>
 #include <QVector>
 
-class Dealer
+class Dealer : public QObject
 {
+    Q_OBJECT
 public:
+    explicit Dealer(QObject *parent = 0);
     int bank, last_bet;
     QVector <int> deck;
-    Dealer();
     void shuffle();
-    //void giveCards();
     int giveCard();
     int giveBank();
+
+signals:
+
+public slots:
 };
 
 #endif // DEALER_H

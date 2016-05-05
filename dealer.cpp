@@ -1,13 +1,13 @@
 #include "dealer.h"
 
-Dealer::Dealer()
+Dealer::Dealer(QObject *parent) : QObject(parent)
 {
-
+    //deck.push_back(1);
 }
 
 void Dealer::shuffle()
 {
-    deck.clear();
+    this->deck.clear();
     for (int i = 0; i < 52; i++)
     {
         deck.push_back(i);
@@ -37,3 +37,4 @@ int Dealer::giveBank()
 {
     return bank;
 }
+
